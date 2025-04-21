@@ -1,0 +1,15 @@
+[project]
+name = "polarecgvis"
+version = "0.1.0"
+description = "Visualise ECG, Heart Rate and extrapolated Breathing Rate from Polar H10 chest straps"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ace>=0.3.3",
+    "ace-tools>=0.0",
+    "matplotlib>=3.10.1",
+    "numpy>=2.2.4",
+    "pandas>=2.2.3",
+    "plotly>=6.0.1",
+    "scipy>=1.15.2",
+]
