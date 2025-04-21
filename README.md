@@ -2,13 +2,14 @@
 
 Visualise ECG, Heart Rate and extrapolated Breathing Rate from Polar H10 chest straps!
 
+*NOTE: THESE METRICS AND INTERPRETATIONS ARE PURELY FOR ENTERTAINMENT PURPOSES AND NOT FOR ANY CLINICAL OR DIAGNOSTIC PURPOSES. IN SHORT: The data is ABSOLUTELY NOT suitable for ANY pseudomedical purposes!!! *
+
 ![PolarECGVis Visualization](polarecgvis.png)
 
 ## Overview
 
 PolarECGVis is a Python-based tool for visualizing and analyzing ECG data collected from Polar H10 chest straps. The project provides tools for processing raw ECG data, detecting heart rate, extrapolating breathing rate, and identifying potential cardiac arrhythmias.
 
-*NOTE: THESE METRICS AND INTERPRETATIONS ARE PURELY FOR ENTERTAINMENT PURPOSES AND NOT FOR ANY CLINICAL OR DIAGNOSTIC PURPOSES. IN SHORT: The data is ABSOLUTELY NOT suitable for ANY pseudomedical purposes!!! *
 
 ## Features
 
@@ -260,5 +261,7 @@ This approach combines traditional ECG analysis techniques with modern signal pr
 This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
 
 ## Limitations
+
+* NOTE: THESE METRICS AND INTERPRETATIONS ARE PURELY FOR ENTERTAINMENT PURPOSES AND NOT FOR ANY CLINICAL OR DIAGNOSTIC PURPOSES. IN SHORT: The data is ABSOLUTELY NOT suitable for ANY pseudomedical purposes!!! *
 
 The arrhythmia detection algorithms are experimental and should not be used for clinical diagnosis. The project developers note that the PAC/PVC detection is still being improved.
