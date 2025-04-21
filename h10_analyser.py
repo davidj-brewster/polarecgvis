@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Robust Polar H10 CSV analyser (2–4 columns), incorporating community review.
+This is a crappy early version, ignre it
 
 Improvements
 ------------

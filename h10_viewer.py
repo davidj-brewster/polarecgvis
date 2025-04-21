@@ -2,6 +2,7 @@
 """
 h10_viewer_v11.py – Polar H10 interactive viewer with Breathing‑Rate proxy
 Requires: numpy pandas scipy plotly pytz
+This is a much more advanced version with the breath/peak analysis, wide interval and PAC/PVC detection (which are still PRETTY BAD but i'm working on it..)
 """
 import argparse, csv, os
 import numpy as np, pandas as pd, scipy.signal as sg, plotly.graph_objs as go
@@ -1217,38 +1218,6 @@ def build(path, down, out_html, auto_open):
     
     pvc_x, pvc_y, pac_x, pac_y, wq_x, wq_y, dip_x, dip_y = detect_arrhythmias(ecg_f, t, pk, fs)
 
-    #for i in range(len(rr)):        # rr[i] is interval between pk[i] and pk[i+1]
-    #    # Check for premature beats
-    #    if rr[i] < PVC_THRESH * median_rr:  # Early/premature beat detected
-    #        # Get the timestamp and amplitude of the premature beat
-    #        ts = t[pk][i + 1]                     # time‑stamp of premature beat
-    #        amp = ecg_f[np.searchsorted(t, ts)]   # y‑position on filtered ECG
-    #        
-    #        # Measure QRS width of the premature beat
-    #        width_ms = qrs_width(ecg_f, pk[i + 1], fs)
-    #        
-    #        # Check if the following RR interval is compensatory
-    #        next_rr_ok = (
-    #            i + 1 < len(rr) and                    # have RR after the premature
-    #            rr[i + 1] < (1+PVC_THRESH) * median_rr  # non‑compensatory pause
-    #        )
-    #        
-    #        # Classify the premature beat
-    #        if width_ms > QRS_WIDE:
-    #            # Wide QRS and premature → PVC
-    #            pvc_x.append(ts)
-    #            pvc_y.append(amp)
-    #        elif next_rr_ok:
-    #            # Normal width, premature, and no compensatory pause → PAC
-    #            pac_x.append(ts)
-    #            pac_y.append(amp)
-    #
-    ## Detect other wide QRS complexes (not premature)
-    #for idx in pk:
-    #    if qrs_width(ecg_f, idx, fs) > QRS_WIDE and t[idx] not in pvc_x:
-    #        wq_x.append(t[idx])
-    #        wq_y.append(ecg_f[np.searchsorted(t, t[idx])])
-    
     # Detect HR dips
     baseline = pd.Series(hr_peak).rolling(20, center=True, min_periods=1).median().to_numpy()
     dip_edges = np.where(np.diff(((baseline-hr_peak) > 30).astype(int)) == 1)[0] + 1

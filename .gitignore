@@ -1,0 +1,8 @@
+.venv
+.venv/*
+.DS_Store
+pycache/*
+pycache
+*.csv
+git
+*.html
